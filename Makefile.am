@@ -63,35 +63,35 @@ bin_PROGRAMS = \
 prime_serverd_SOURCES = \
         src/prime_serverd.cpp
 prime_serverd_CPPFLAGS = $(DEPS_CFLAGS)
-prime_serverd_LDADD = $(DEPS_LIBS) libprime_server.la
+prime_serverd_LDADD = $(DEPS_LIBS) libprime_server.la -lpthread
 prime_httpd_SOURCES = \
         src/prime_httpd.cpp
 prime_httpd_CPPFLAGS = $(DEPS_CFLAGS)
-prime_httpd_LDADD = $(DEPS_LIBS) libprime_server.la
+prime_httpd_LDADD = $(DEPS_LIBS) libprime_server.la -lpthread
 prime_proxyd_SOURCES = \
         src/prime_proxyd.cpp
 prime_proxyd_CPPFLAGS = $(DEPS_CFLAGS)
-prime_proxyd_LDADD = $(DEPS_LIBS) libprime_server.la
+prime_proxyd_LDADD = $(DEPS_LIBS) libprime_server.la -lpthread
 prime_workerd_SOURCES = \
         src/prime_workerd.cpp
 prime_workerd_CPPFLAGS = $(DEPS_CFLAGS)
-prime_workerd_LDADD = $(DEPS_LIBS) libprime_server.la
+prime_workerd_LDADD = $(DEPS_LIBS) libprime_server.la -lpthread
 prime_echod_SOURCES = \
         src/prime_echod.cpp
 prime_echod_CPPFLAGS = $(DEPS_CFLAGS)
-prime_echod_LDADD = $(DEPS_LIBS) libprime_server.la
+prime_echod_LDADD = $(DEPS_LIBS) libprime_server.la -lpthread
 
 # tests
 check_PROGRAMS = test/zmq test/netstring test/http
 test_zmq_SOURCES = test/zmq.cpp
 test_zmq_CPPFLAGS = $(DEPS_CFLAGS)
-test_zmq_LDADD = $(DEPS_LIBS) libprime_server.la
+test_zmq_LDADD = $(DEPS_LIBS) libprime_server.la -lpthread
 test_netstring_SOURCES = test/netstring.cpp
 test_netstring_CPPFLAGS = $(DEPS_CFLAGS)
-test_netstring_LDADD = $(DEPS_LIBS) libprime_server.la
+test_netstring_LDADD = $(DEPS_LIBS) libprime_server.la -lpthread
 test_http_SOURCES = test/http.cpp
 test_http_CPPFLAGS = $(DEPS_CFLAGS)
-test_http_LDADD = $(DEPS_LIBS) libprime_server.la
+test_http_LDADD = $(DEPS_LIBS) libprime_server.la -lpthread
 
 
 TESTS = $(check_PROGRAMS)

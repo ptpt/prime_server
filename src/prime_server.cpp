@@ -17,11 +17,9 @@ namespace prime_server {
     int disabled = 0;
     server.setsockopt(ZMQ_SNDHWM, &disabled, sizeof(disabled));
     server.setsockopt(ZMQ_RCVHWM, &disabled, sizeof(disabled));
-#if ZMQ_VERSION_MAJOR >= 4
-#if ZMQ_VERSION_MINOR >= 1
+#ifdef ZMQ_STREAM_NOTIFY
     int enabled = 1;
     server.setsockopt(ZMQ_STREAM_NOTIFY, &enabled, sizeof(enabled));
-#endif
 #endif
     server.connect(server_endpoint.c_str());
   }
@@ -85,11 +83,9 @@ namespace prime_server {
     int disabled = 0;
     client.setsockopt(ZMQ_SNDHWM, &disabled, sizeof(disabled));
     client.setsockopt(ZMQ_RCVHWM, &disabled, sizeof(disabled));
-#if ZMQ_VERSION_MAJOR >= 4
-#if ZMQ_VERSION_MINOR >= 1
+#ifdef ZMQ_STREAM_NOTIFY
     int enabled = 1;
     client.setsockopt(ZMQ_STREAM_NOTIFY, &enabled, sizeof(enabled));
-#endif
 #endif
     client.bind(client_endpoint.c_str());
 
